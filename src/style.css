@@ -1,0 +1,35 @@
+body {
+  background: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
+}
+
+.weather-app {
+  font-family: "Bitter", serif;
+  font-weight: 600;
+}
+.search {
+  margin: 20px;
+  border-radius: 10px;
+  font-family: "Bitter", serif;
+}
+.current {
+  margin: 20px;
+}
+.sun {
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
+}
+.top {
+  margin: 40px;
+}
+.bottom {
+  margin: 20px;
+}
+.details {
+  line-height: 200%;
+}
+
+.footer {
+  font-size: 12px;
+  text-align: center;
+}
