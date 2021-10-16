@@ -32,4 +32,9 @@ body {
 .footer {
   font-size: 12px;
   text-align: center;
+  color: #30d2f2;
+}
+.github {
+  color: #2190a6;
+  text-decoration: underline;
 }
