@@ -42,6 +42,8 @@ function displayCity(event) {
     let temperatureF = Math.round(temperatureC * 1.8 + 32);
     let tempElementF = document.querySelector("#currentTemperatureF");
     tempElementF.innerHTML = `${temperatureF}°F`;
+
+    console.log(response.data.weather[0].main);
   }
 
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);
