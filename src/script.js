@@ -28,7 +28,6 @@ function displayCity(event) {
   event.preventDefault();
   let searchCityInput = document.querySelector("#search-input");
 
-  // alert(searchCityInput.value);
   let newCity = searchCityInput.value;
   let h3 = document.querySelector("h3");
 
