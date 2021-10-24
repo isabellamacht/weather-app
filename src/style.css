@@ -18,7 +18,10 @@ body {
 .starter {
   position: relative;
   margin: 0 auto;
-  width: 120%;
+  width: 50%;
+}
+#description {
+  padding-left: 35px;
 }
 .top {
   margin-top: 40px;
