@@ -5,6 +5,7 @@ body {
 .weather-app {
   font-family: "Bitter", serif;
   font-weight: 600;
+  text-transform: capitalize;
 }
 .search {
   margin: 20px;
