@@ -19,7 +19,7 @@ function formateDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hour}:${minutes}`;
+  return `${day}, ${hour}:${minutes}`;
 }
 
 // city & temp
@@ -49,6 +49,8 @@ function displayCity(event) {
     let dateElement = document.querySelector("#date");
     let imageElement = document.querySelector("#image");
 
+    displayForecast();
+
     tempElement.innerHTML = `${temperatureC}°C`;
     tempElementF.innerHTML = `${temperatureF}°F`;
     descriptionElement.innerHTML = response.data.weather[0].main;
@@ -66,3 +68,26 @@ function displayCity(event) {
 
 let searchCityForm = document.querySelector("#search-city-form");
 searchCityForm.addEventListener("submit", displayCity);
+
+// forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div>`;
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+                  <tbody>
+                    <tr>
+                      <td>${day}</td>
+                      <td>☀️</td> 
+                      <td>20°C</td>
+                    </tr>
+                  </tbody>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}

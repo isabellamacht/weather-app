@@ -6,6 +6,8 @@ body {
   font-family: "Bitter", serif;
   font-weight: 600;
   text-transform: capitalize;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .search {
   margin: 20px;
@@ -22,6 +24,10 @@ body {
 }
 #description {
   padding-left: 35px;
+}
+.date {
+  font-size: 15px;
+  font-weight: 500;
 }
 .top {
   margin-top: 40px;
