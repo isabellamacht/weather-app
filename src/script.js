@@ -80,24 +80,38 @@ let searchCityForm = document.querySelector("#search-city-form");
 searchCityForm.addEventListener("submit", displayCity);
 
 // forecast
+function formateDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div>`;
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        `
                   <tbody>
                     <tr>
-                      <td>${day}</td>
-                      <td>☀️</td> 
-                      <td>20°C</td>
+                      <td>${formateDay(forecastDay.dt)}</td>
+                      <td> 
+                        <img src="http://openweathermap.org/img/wn/${
+                          forecastDay.weather[0].icon
+                        }@2x.png" alt="" width="42"/> 
+                      </td> 
+                      <td>${Math.round(forecastDay.temp.min)}°C / ${Math.round(
+          forecastDay.temp.max
+        )}°C</td>
                     </tr>
                   </tbody>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
