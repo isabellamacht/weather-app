@@ -1,5 +1,4 @@
 function formateDate(timestamp) {
-  // calculating date
   let date = new Date(timestamp);
   let hour = date.getHours();
   if (hour < 10) {
@@ -60,8 +59,6 @@ function displayCity(event) {
     let dateElement = document.querySelector("#date");
     let imageElement = document.querySelector("#image");
 
-    //displayForecast();
-
     tempElement.innerHTML = `${temperatureC}°C`;
     tempElementF.innerHTML = `${temperatureF}°F`;
     descriptionElement.innerHTML = response.data.weather[0].main;
@@ -75,7 +72,6 @@ function displayCity(event) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
-    //console.log(response.data.rain);
 
     getForecast(response.data.coord);
   }
