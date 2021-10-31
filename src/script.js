@@ -52,6 +52,9 @@ function displayCity(event) {
     let temperatureF = Math.round(temperatureC * 1.8 + 32);
     let tempElementF = document.querySelector("#currentTemperatureF");
     let descriptionElement = document.querySelector("#description");
+    let minTempElement = document.querySelector("#minTemp");
+    let maxTempElement = document.querySelector("#maxTemp");
+
     let humidityElement = document.querySelector("#humidity");
     let windElement = document.querySelector("#wind");
     let dateElement = document.querySelector("#date");
@@ -62,6 +65,9 @@ function displayCity(event) {
     tempElement.innerHTML = `${temperatureC}°C`;
     tempElementF.innerHTML = `${temperatureF}°F`;
     descriptionElement.innerHTML = response.data.weather[0].main;
+    minTempElement.innerHTML = Math.round(response.data.main.temp_min);
+    maxTempElement.innerHTML = Math.round(response.data.main.temp_max);
+
     humidityElement.innerHTML = response.data.main.humidity;
     windElement.innerHTML = Math.round(response.data.wind.speed);
     dateElement.innerHTML = formateDate(response.data.dt * 1000);
@@ -69,7 +75,7 @@ function displayCity(event) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
-    //console.log(response.data);
+    //console.log(response.data.rain);
 
     getForecast(response.data.coord);
   }
